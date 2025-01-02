@@ -1,47 +1,47 @@
-# Firefox dans Docker (Windows)
+# Firefox in Docker (Windows)
 
-Configuration pour exécuter Firefox dans Docker
+Configuration to Run Firefox in Docker
 
-## Prérequis
+## Prerequisites
 
-- Docker Desktop pour Windows
-- Xming (serveur X Windows) installé
+- Docker Desktop for Windows
+- Xming (X Windows server) installed
 
 ## Installation
 
-1. Installez Xming : [Télécharger Xming](http://www.straightrunning.com/XmingNotes/)
+1. Install Xming: [Download Xming](http://www.straightrunning.com/XmingNotes/)
 
-2. Lancez Xming :
-   - Utilisez les paramètres par défaut
-   - Une icône Xming apparaîtra dans la barre des tâches
+2. Start Xming:
+   - Use the default settings.
+   - A Xming icon will appear in the taskbar.
 
-## Utilisation
+## Usage
 
-Démarrer Firefox avec une version spécifique :
+To start Firefox with a specific version:
 ```bash
 FIREFOX_VERSION=115.0 docker compose up -d
 ```
 
-Ou créez un fichier `.env` avec :
+Alternatively, create a `.env` file with:
 ```
 FIREFOX_VERSION=115.0
 ```
-Puis lancez simplement :
+Then run:
 ```bash
 docker compose up -d
 ```
 
-Arrêter Firefox :
+To stop Firefox:
 ```bash
 docker compose down
 ```
 
 ## Extensions
 
-1. Placez vos fichiers d'extensions (ou autres) dans le dossier `extensions`
+1. Place your extension files (or other resources) in the `extensions` folder.
 
-## Dépannage
+## Troubleshooting
 
-Si l'affichage ne fonctionne pas :
-- Vérifiez que Xming est en cours d'exécution (icône dans la barre des tâches)
-- Assurez-vous que le pare-feu Windows autorise Xming
+If the display doesn't work:
+- Check that Xming is running (look for the icon in the taskbar).
+- Ensure that the Windows Firewall allows Xming.
