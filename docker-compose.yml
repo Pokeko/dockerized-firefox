@@ -1,0 +1,21 @@
+version: '3.8'
+
+services:
+  firefox:
+    build: 
+      context: .
+      dockerfile: Dockerfile
+    environment:
+      - DISPLAY=host.docker.internal:0.0
+      - FIREFOX_VERSION=${FIREFOX_VERSION:-latest}  # Version par défaut si non spécifiée
+    volumes:
+      - firefox-data:/opt/firefox
+      - ./extensions:/extensions  # Montage du dossier d'extensions
+    network_mode: "host"  # Nécessaire pour l'affichage X11
+    security_opt:
+      - seccomp:unconfined  # Nécessaire pour Firefox
+    user: "firefox-user"
+
+volumes:
+  firefox-data:
+    name: firefox-data 
